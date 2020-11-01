@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskForm should match element against snapshot 1`] = `
+<div
+  class="add-items d-flex"
+>
+  <input
+    class="form-control todo-list-input"
+    placeholder="What do you need to do today?"
+    type="text"
+  />
+   
+  <button
+    class="add btn btn-primary font-weight-bold todo-list-add-btn"
+  >
+    
+        Add
+    
+  </button>
+</div>
+`;
