@@ -4,12 +4,8 @@
   <div class="card px-3 mt-5 w-100">
     <div class="card-body">
       <h4 class="card-title">Todo list</h4>
-      <div class="add-items d-flex">
-        <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?" v-model="taskTitle" />
-        <button class="add btn btn-primary font-weight-bold todo-list-add-btn" @click="addTask(taskTitle); taskTitle = ''">
-          Add
-        </button>
-      </div>
+      
+      <task-form></task-form>
 
       <task-list>
           <task v-for="task in tasks" 
@@ -17,8 +13,8 @@
             :id="task.id"
             :title="task.title"              
           	:completed="task.completed"
-            @resolved="taskId => $emit('task-resolved', taskId)"
-            @remove="taskId => $emit('task-removed', taskId)"
+            @resolved="taskId => resolveTask(taskId)"
+            @remove="taskId => removeTask(taskId)"
             >
           </task>    
       </task-list>     
@@ -40,6 +36,7 @@ import Vuex from 'vuex'
 
 import TaskList from './components/TaskList'
 import Task from './components/Task'
+import TaskForm from './components/TaskForm'
 import store from './store'
 
 const mapState = Vuex.mapState(['tasks'])
@@ -54,7 +51,8 @@ export default {
   store,
 	components: {
     TaskList,
-    Task
+    Task,
+    TaskForm
   },
   data: function() {
     return {
