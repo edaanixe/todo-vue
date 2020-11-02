@@ -16,10 +16,12 @@ export interface State {
   tasks: Task[];
 }
 
+const state: State = {
+  tasks: new Array<Task>()
+}
+
 export default new Vuex.Store({
-  state: {
-  	tasks: new Array<Task>()
-  },  
+  state,
   mutations,
   actions
 })
