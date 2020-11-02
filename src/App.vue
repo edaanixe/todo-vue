@@ -54,11 +54,6 @@ export default {
     Task,
     TaskForm
   },
-  data() {
-    return {
-      taskTitle: ''
-    }
-  },
   computed: {
   	...mapState
   },
