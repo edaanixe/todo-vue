@@ -5,7 +5,7 @@
     <div class="card-body">
       <h4 class="card-title">Todo list</h4>
       
-      <task-form></task-form>
+      <task-form @add-task="title => addTask(title)"></task-form>
 
       <task-list>
           <task v-for="task in tasks" 
@@ -36,7 +36,7 @@ import Vuex from 'vuex'
 
 import TaskList from './components/TaskList'
 import Task from './components/Task'
-import TaskForm from './components/TaskForm'
+import TaskForm from './containers/TaskForm'
 import store from './store'
 
 const mapState = Vuex.mapState(['tasks'])
@@ -54,10 +54,10 @@ export default {
     Task,
     TaskForm
   },
-  data: function() {
+  data() {
     return {
-        taskTitle: ''
-      };
+      taskTitle: '1'
+    }
   },
   computed: {
   	...mapState
