@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      taskTitle: '1'
+      taskTitle: ''
     }
   },
   computed: {
