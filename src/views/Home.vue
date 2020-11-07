@@ -61,8 +61,7 @@ export default {
     ...mapMutations,
     async onLogout(){
       try {
-        await firebase.auth().logout()
-        this.logout()
+        await firebase.auth().signOut()
         this.$router.replace({ name: 'Login'})      
       } catch (error) {
         console.log(error) 
