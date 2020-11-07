@@ -8,7 +8,7 @@
       <task-form @add-task="title => addTask(title)"></task-form>
 
       <task-list>
-          <task v-for="task in tasks" 
+          <task-item v-for="task in tasks" 
             :key="task.id"
             :id="task.id"
             :title="task.title"              
@@ -16,7 +16,7 @@
             @resolved="taskId => resolveTask(taskId)"
             @remove="taskId => removeTask(taskId)"
             >
-          </task>    
+          </task-item>    
       </task-list>     
       
     </div>
@@ -34,7 +34,7 @@
 <script>
 
 import TaskList from './components/TaskList'
-import Task from './components/Task'
+import TaskItem from './components/TaskItem'
 import TaskForm from './containers/TaskForm'
 import store, { mapState, mapActions, mapMutations} from './store'
 
@@ -43,7 +43,7 @@ export default {
   store,
 	components: {
     TaskList,
-    Task,
+    TaskItem,
     TaskForm
   },
   computed: {

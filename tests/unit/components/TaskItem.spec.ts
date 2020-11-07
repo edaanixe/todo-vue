@@ -1,16 +1,16 @@
 import { shallowMount } from '@vue/test-utils'
-import Task from '@/components/Task.vue'
+import TaskItem from '@/components/TaskItem.vue'
 
-describe('Task.vue', () => {
+describe('TaskItem.vue', () => {
   it('should match element against snapshot', () => {
-    const wrapper = shallowMount(Task)
+    const wrapper = shallowMount(TaskItem)
     expect(wrapper.element).toMatchSnapshot()
   })
 
 
-  it('should render Task.title prop', () => {
+  it('should render TaskItem.title prop', () => {
     const title = 'Buy rice'
-    const wrapper = shallowMount(Task, {
+    const wrapper = shallowMount(TaskItem, {
       propsData: {
         title
       }
@@ -19,9 +19,9 @@ describe('Task.vue', () => {
     expect(wrapper.text()).toContain(title)    
   });
 
-  it('should render Task.completed prop', () => {
+  it('should render TaskItem.completed prop', () => {
     const completed = true
-    const wrapper = shallowMount(Task, {
+    const wrapper = shallowMount(TaskItem, {
       propsData: {
         completed
       }
@@ -31,7 +31,7 @@ describe('Task.vue', () => {
   });  
 
   it('should trigger remove event', async () => {
-    const wrapper = shallowMount(Task)
+    const wrapper = shallowMount(TaskItem)
 
     await wrapper.find('.remove').trigger('click')
 
@@ -39,7 +39,7 @@ describe('Task.vue', () => {
   });
 
   it('should trigger resolved event', async () => {
-    const wrapper = shallowMount(Task)
+    const wrapper = shallowMount(TaskItem)
 
     await wrapper.find('.checkbox').trigger('click')
 
