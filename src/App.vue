@@ -32,20 +32,12 @@
 </style>
 
 <script>
-import Vuex from 'vuex'
 
 import TaskList from './components/TaskList'
 import Task from './components/Task'
 import TaskForm from './containers/TaskForm'
-import store from './store'
+import store, { mapState, mapActions, mapMutations} from './store'
 
-const mapState = Vuex.mapState(['tasks'])
-const mapActions = Vuex.mapActions(['fetchTasks']) 
-const mapMutations = Vuex.mapMutations([
-  'addTask', 
-  'removeTask',
-  'resolveTask'
-])
 
 export default {
   store,

@@ -6,6 +6,14 @@ import actions from './actions'
 
 Vue.use(Vuex)
 
+export const mapState = Vuex.mapState(['tasks'])
+export const mapActions = Vuex.mapActions(['fetchTasks']) 
+export const mapMutations = Vuex.mapMutations([
+  'addTask', 
+  'removeTask',
+  'resolveTask'
+])
+
 export interface Task {
   title: string;
   completed: boolean;
