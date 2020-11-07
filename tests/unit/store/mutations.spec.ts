@@ -7,7 +7,10 @@ describe('mutations', () => {
 
     beforeEach(() => {
         state = {
-            tasks: []
+            tasks: [],
+            user: {
+                isLogged: false
+            }
         }
     })
 
