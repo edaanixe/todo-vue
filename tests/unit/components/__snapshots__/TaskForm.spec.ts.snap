@@ -12,6 +12,7 @@ exports[`TaskForm should match element against snapshot 1`] = `
    
   <button
     class="add btn btn-primary font-weight-bold todo-list-add-btn"
+    disabled="disabled"
   >
     
         Add

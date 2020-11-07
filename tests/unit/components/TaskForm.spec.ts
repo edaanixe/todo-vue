@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import TaskForm from '@/components/TaskForm.vue'
+import TaskForm from '@/containers/TaskForm.vue'
 
 describe('TaskForm', () => {
     it('should match element against snapshot', () => {
@@ -9,6 +9,8 @@ describe('TaskForm', () => {
 
     it('should trigger add-task event', async () => {
         const wrapper = shallowMount(TaskForm)
+
+        await wrapper.find('.todo-list-input').setValue('Mop the floor')
 
         await wrapper.find('.todo-list-add-btn').trigger('click')
 
