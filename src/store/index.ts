@@ -4,16 +4,26 @@ import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './actions'
 
+import {
+  ADD_TASK,
+  FETCH_TASKS,
+  FETCH_USER,
+  LOGOUT,
+  REMOVE_TASK,
+  RESOLVE_TASK,
+  SET_LOGGEDIN_USER,
+} from '../constants'
+
 Vue.use(Vuex)
 
 export const mapState = Vuex.mapState(['tasks', 'user'])
-export const mapActions = Vuex.mapActions(['fetchTasks', 'fetchUser']) 
+export const mapActions = Vuex.mapActions([FETCH_TASKS, FETCH_USER]) 
 export const mapMutations = Vuex.mapMutations([
-  'addTask', 
-  'removeTask',
-  'resolveTask',
-  'setLoggedInUser',
-  'logout'
+  ADD_TASK, 
+  REMOVE_TASK,
+  RESOLVE_TASK,
+  SET_LOGGEDIN_USER,
+  LOGOUT
 ])
 
 export interface Task {
