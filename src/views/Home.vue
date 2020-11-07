@@ -40,6 +40,7 @@ import TaskList from '../components/TaskList'
 import TaskItem from '../components/TaskItem'
 import TaskForm from '../containers/TaskForm'
 import NavBar from '../components/NavBar'
+import firebase from 'firebase'
 
 import { mapState, mapActions, mapMutations} from '../store'
 
@@ -58,9 +59,14 @@ export default {
   methods: {
   	...mapActions,
     ...mapMutations,
-    onLogout(){
-      this.$router.replace({ name: 'Login'})
-      this.logout()
+    async onLogout(){
+      try {
+        await firebase.auth().logout()
+        this.logout()
+        this.$router.replace({ name: 'Login'})      
+      } catch (error) {
+        console.log(error) 
+      }
     }
   },
 	created() {
