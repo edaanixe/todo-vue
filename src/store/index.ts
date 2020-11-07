@@ -6,12 +6,14 @@ import actions from './actions'
 
 Vue.use(Vuex)
 
-export const mapState = Vuex.mapState(['tasks'])
-export const mapActions = Vuex.mapActions(['fetchTasks']) 
+export const mapState = Vuex.mapState(['tasks', 'user'])
+export const mapActions = Vuex.mapActions(['fetchTasks', 'fetchUser']) 
 export const mapMutations = Vuex.mapMutations([
   'addTask', 
   'removeTask',
-  'resolveTask'
+  'resolveTask',
+  'setLoggedInUser',
+  'logout'
 ])
 
 export interface Task {
@@ -22,10 +24,17 @@ export interface Task {
 
 export interface State {
   tasks: Task[];
+  user: {
+    isLogged: boolean;
+    data?: object;
+  };
 }
 
 const state: State = {
-  tasks: new Array<Task>()
+  tasks: new Array<Task>(),
+  user: {
+    isLogged: false
+  }
 }
 
 export default new Vuex.Store({

@@ -6,6 +6,17 @@ export default {
     async fetchTasks({ commit }: {commit: Function}){
         const response = await fetch(requestURL)
         const tasks = await response.json()
-        commit('setTasks', tasks)    
+        commit('setTasks', tasks)
+    },
+    fetchUser({ commit }: {commit: Function}, user: { displayName: string; email: string }) {
+      commit("setLoggedInUser", user !== null);
+      if (user) {
+        commit("setUser", {
+          displayName: user.displayName,
+          email: user.email
+        });
+      } else {
+        commit("setUser", null);
+      }
+    }
   }
-}

@@ -23,5 +23,14 @@ export default    {
         
         return t
       })
+    },
+    setLoggedInUser(state: State, isLogged: boolean){
+      state.user.isLogged = isLogged
+    },
+    setUser(state: State, userData: object){
+      state.user.data = userData
+    },
+    logout(state: State){
+      state.user.isLogged = false
     }
   }
