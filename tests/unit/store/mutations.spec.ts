@@ -1,5 +1,5 @@
-import mutations from '../../../src/store/mutations'
-import {State} from '../../../src/store/'
+import mutations from '@/store/mutations'
+import {State} from '@/store/'
 
 describe('mutations', () => {
     const mockTask = { id: 1, completed: false, title: 'buy milk'}

@@ -1,4 +1,4 @@
-import actions from '../../../src/store/actions'
+import actions from '@/store/actions'
 import nock from 'nock';
 
 describe('actions', () => {
