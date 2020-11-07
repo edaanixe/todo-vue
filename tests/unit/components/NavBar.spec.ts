@@ -10,7 +10,7 @@ describe('NavBar', () => {
     it('should trigger logout event', async () => {
         const wrapper = shallowMount(NavBar)
 
-        await wrapper.find('.btn-logout').trigger('click')
+        await wrapper.find('.btn-logout').trigger('submit')
 
         expect(wrapper.emitted('logout')).toHaveLength(1)
     });
